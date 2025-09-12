@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Simba</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+    </head>
+    <body data-theme="dark">
+        <header>
+            <div class="header-left">
+                <h1>
+                    <img
+                        src="lion.png"
+                        alt="Simba Logo"
+                        style="height: 70px; vertical-align: middle; margin-right: 0px"
+                    />
+                    Simba
+                </h1>
+            </div>
+            <div class="header-right">
+                <a href="index.html" class="home-icon" title="Go to Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <button
+                    id="themeToggle"
+                    class="theme-toggle"
+                    role="switch"
+                    aria-label="Toggle theme"
+                    aria-checked="true"
+                >
+                    <span class="theme-toggle-knob"></span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-contentt">
+            <div class="grid-header">
+                <!-- <h2>College Station Lab</h2> -->
+                <h3>Connected Devices</h3>
+            </div>
+
+            <div id="deviceGrid" class="device-grid">
+                <!-- Devices will be injected here -->
+            </div>
+        </main>
+
+        <footer class="landing-footer">Simba 2025 &copy; All rights reserved</footer>
+
+        <script src="landing.js"></script>
+    </body>
+</html>
