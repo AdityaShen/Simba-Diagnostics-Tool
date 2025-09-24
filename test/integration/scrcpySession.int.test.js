@@ -18,8 +18,15 @@ describe("scrcpySession Integration", () => {
         adbService.executeCommand.mockResolvedValue({ success: true });
         const wsClientsRef = new Map();
         const session = await scrcpySession.setupScrcpySession(
-            "test-device", "test-scid", 12345, { video: "true", audio: "false", control: "true" },
-            "client-1", "overlay", false, wsClientsRef, "webcodecs"
+            "test-device",
+            "test-scid",
+            12345,
+            { video: "true", audio: "false", control: "true" },
+            "client-1",
+            "overlay",
+            false,
+            wsClientsRef,
+            "webcodecs",
         );
         expect(session).toBeDefined();
         await scrcpySession.cleanupSession("test-scid", wsClientsRef);
@@ -27,10 +34,19 @@ describe("scrcpySession Integration", () => {
     });
 
     it("should throw error for missing streams", async () => {
-        await expect(scrcpySession.setupScrcpySession(
-            "test-device", "test-scid", 12345, {},
-            "client-1", "overlay", false, new Map(), "webcodecs"
-        )).rejects.toThrow("No streams enabled.");
+        await expect(
+            scrcpySession.setupScrcpySession(
+                "test-device",
+                "test-scid",
+                12345,
+                {},
+                "client-1",
+                "overlay",
+                false,
+                new Map(),
+                "webcodecs",
+            ),
+        ).rejects.toThrow("No streams enabled.");
     });
 
     // Add more integration scenarios as needed
