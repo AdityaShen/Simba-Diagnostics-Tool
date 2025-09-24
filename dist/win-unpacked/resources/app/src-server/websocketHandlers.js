@@ -726,7 +726,7 @@ async function handleWifiToggleCommand(clientId, ws, message) {
             let attempts = 0;
             while (attempts < maxAttemptsWifiOn) {
                 const statusOutput = await adbService.streamToString(
-                    await device.shell("dumpsys wifi | grep \"Wi-Fi is\""),
+                    await device.shell('dumpsys wifi | grep "Wi-Fi is"'),
                 );
                 isWifiOn = statusOutput.includes("Wi-Fi is enabled");
                 if (isWifiOn) break;
@@ -770,7 +770,7 @@ async function handleWifiToggleCommand(clientId, ws, message) {
         } else {
             await new Promise((resolve) => setTimeout(resolve, 500));
             const statusOutput = await adbService.streamToString(
-                await device.shell("dumpsys wifi | grep \"Wi-Fi is\""),
+                await device.shell('dumpsys wifi | grep "Wi-Fi is"'),
             );
             isWifiOn = statusOutput.includes("Wi-Fi is enabled");
         }
@@ -826,7 +826,7 @@ async function handleGetWifiStatusCommand(clientId, ws) {
     try {
         const device = adbService.adb.getDevice(session.deviceId);
         const statusOutput = await adbService.streamToString(
-            await device.shell("dumpsys wifi | grep \"Wi-Fi is\""),
+            await device.shell('dumpsys wifi | grep "Wi-Fi is"'),
         );
         const isWifiOn = statusOutput.includes("Wi-Fi is enabled");
         let ssid = null;
@@ -1158,11 +1158,11 @@ async function handleStartMetrics(clientId, ws, message) {
             const device = adbService.adb.getDevice(deviceId);
             // Memory
             const memOut = await adbService.streamToString(
-                await device.shell("dumpsys meminfo | grep \"Used RAM\""),
+                await device.shell('dumpsys meminfo | grep "Used RAM"'),
             );
             // CPU
             const cpuOut = await adbService.streamToString(
-                await device.shell("top -n 1 | grep \"CPU\""),
+                await device.shell('top -n 1 | grep "CPU"'),
             );
             // Network
             const netOut = await adbService.streamToString(await device.shell("cat /proc/net/dev"));

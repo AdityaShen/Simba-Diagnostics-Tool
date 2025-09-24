@@ -16,16 +16,6 @@ const { log } = require("./logger");
 const C = require("./constants");
 const adbService = require("./adbService");
 
-// Path to bundled scrcpy binary for each platform,
-let scrcpyBinary;
-if (process.platform === "win32") {
-    scrcpyBinary = path.join(process.cwd(), "resources", "scrcpy", "win", "scrcpy.exe");
-} else if (process.platform === "darwin") {
-    scrcpyBinary = path.join(process.cwd(), "resources", "scrcpy", "mac", "scrcpy");
-} else {
-    scrcpyBinary = "scrcpy";
-}
-
 const WebSocket = require("ws");
 
 const sessions = new Map();
@@ -1152,16 +1142,7 @@ async function setupScrcpySession(
         await adbService.adbPushServer(deviceId);
         log(C.LogLevel.INFO, `[ADB] Pushed server JAR to ${deviceId}`);
         const tunnelString = `localabstract:scrcpy_${scid}`;
-        let adbPath;
-        if (process.env.ADB_PATH) {
-            adbPath = process.env.ADB_PATH;
-        } else if (process.platform === "win32") {
-            adbPath = require("path").join(process.cwd(), "resources", "adb", "win", "adb.exe");
-        } else if (process.platform === "darwin") {
-            adbPath = require("path").join(process.cwd(), "resources", "adb", "mac", "adb");
-        }else {
-            adbPath = "adb";
-        }
+
         if (await adbService.checkReverseTunnelExists(deviceId, tunnelString)) {
             await adbService.executeCommand(
                 `"${adbPath}" -s ${deviceId} reverse --remove ${tunnelString}`,
@@ -1170,12 +1151,12 @@ async function setupScrcpySession(
         }
         await adbService
             .executeCommand(
-                `"${adbPath}" -s ${deviceId} reverse --remove-all`,
+                `adb -s ${deviceId} reverse --remove-all`,
                 `Remove all tunnels (SCID: ${scid})`,
             )
             .catch(() => {});
         await adbService.executeCommand(
-            `"${adbPath}" -s ${deviceId} reverse ${tunnelString} tcp:${port}`,
+            `adb -s ${deviceId} reverse ${tunnelString} tcp:${port}`,
             `Setup reverse tunnel (SCID: ${scid})`,
         );
         session.tunnelActive = true;

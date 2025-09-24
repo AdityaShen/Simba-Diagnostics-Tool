@@ -84,7 +84,7 @@ export const elements = {
     ipAddressInput: document.getElementById("ipAddressInput"),
     connectByIpBtn: document.getElementById("connectByIpBtn"),
     ipConnectStatus: document.getElementById("ipConnectStatus"),
-    displayModeCheckboxes: document.querySelectorAll("input[name=\"displayMode\"]"),
+    displayModeCheckboxes: document.querySelectorAll('input[name="displayMode"]'),
     rotateAdbButton: document.getElementById("rotateButton"),
     screenOffButton: document.getElementById("screenOffButton"),
     notificationPanelButton: document.getElementById("notificationPanelButton"),

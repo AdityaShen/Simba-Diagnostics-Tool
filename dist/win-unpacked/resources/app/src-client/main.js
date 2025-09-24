@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         // If running in Electron, prompt user to save HAR file
                         // Always show HAR trace complete and Save As button
                         elements.harTraceStatus.innerHTML =
-                            "HAR trace complete.<br><button id=\"saveHarFileBtn\">Save As...</button>";
+                            'HAR trace complete.<br><button id="saveHarFileBtn">Save As...</button>';
                         const saveBtn = document.getElementById("saveHarFileBtn");
                         if (saveBtn && window && window.require) {
                             saveBtn.addEventListener("click", () => {

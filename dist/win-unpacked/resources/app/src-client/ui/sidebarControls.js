@@ -429,13 +429,13 @@ export function initSidebarControls() {
     if (toggleDiagDropdownBtn && diagnosticDropdownContainer) {
         // Initial arrow
         toggleDiagDropdownBtn.innerHTML =
-            "Show Diagnostic Options <span class=\"arrow-icon\">&#x25BC;</span>";
+            'Show Diagnostic Options <span class="arrow-icon">&#x25BC;</span>';
         toggleDiagDropdownBtn.addEventListener("click", () => {
             const isHidden = diagnosticDropdownContainer.style.display === "none";
             diagnosticDropdownContainer.style.display = isHidden ? "block" : "none";
             toggleDiagDropdownBtn.innerHTML = isHidden
-                ? "Hide Diagnostic Options <span class=\"arrow-icon\">&#x25B2;</span>" // Up arrow
-                : "Show Diagnostic Options <span class=\"arrow-icon\">&#x25BC;</span>"; // Down arrow
+                ? 'Hide Diagnostic Options <span class="arrow-icon">&#x25B2;</span>' // Up arrow
+                : 'Show Diagnostic Options <span class="arrow-icon">&#x25BC;</span>'; // Down arrow
         });
     }
     elements.startButton.addEventListener("click", startStreaming);

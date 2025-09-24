@@ -61,7 +61,6 @@ Start the frontend in development mode:
 npm run dev
 ```
 
-
 ### Packaging, Rebuilding, and Overwriting the Electron App
 
 #### Running the Electron App from Source
@@ -79,20 +78,20 @@ This will open Simba in an Electron window using your current source code.
 To create a packaged installer (for Windows or Mac):
 
 1. **Build the frontend for production:**
-     > **Important:** Before running `npm run build`, temporarily remove the line `"main": "main-electron.js",` from your `package.json`. After the build completes, add the line back.
-     ```sh
-     npm run build
-     ```
+    > **Important:** Before running `npm run build`, temporarily remove the line `"main": "main-electron.js",` from your `package.json`. After the build completes, add the line back.
+    ```sh
+    npm run build
+    ```
 2. **Package the app for your platform:**
-     - **Windows:**
-         ```sh
-         npm run pack-win
-         ```
-     - **Mac:**
-         ```sh
-         npm run pack-mac
-         ```
-     > **Note:** Always run the packaging command in a terminal with admin privileges.
+    - **Windows:**
+        ```sh
+        npm run pack-win
+        ```
+    - **Mac:**
+      `sh
+    npm run pack-mac
+    `
+        > **Note:** Always run the packaging command in a terminal with admin privileges.
 
 This will generate a new installer in the `dist/` folder reflecting your latest changes.
 
@@ -259,26 +258,47 @@ For more help, see the [Contact](#contact) section below.
 If HAR tracing does not work, you may need to install some required Python libraries. Here’s how to do it:
 
 1. **Open Terminal**
-   - Press `Cmd + Space`, type `Terminal`, and press Enter.
+    - Press `Cmd + Space`, type `Terminal`, and press Enter.
 
 2. **Navigate to the Python resources directory:**
-   - Copy and paste this command, then press Enter:
-     ```sh
-     cd /Applications/Simba.app/Contents/Resources/app/resources/python/mac
-     ```
-   - (If your app is named differently, adjust the path accordingly.)
+    - Copy and paste this command, then press Enter:
+        ```sh
+        cd /Applications/Simba.app/Contents/Resources/app/resources/python/mac
+        ```
+    - (If your app is named differently, adjust the path accordingly.)
 
 3. **Install the required Python libraries:**
-   - Make sure you have Python 3 installed. Then run:
-     ```sh
-     pip3 install -r requirements.txt
-     ```
-   - This will install all the necessary libraries (like pychrome, haralyzer, etc.) listed in `requirements.txt`.
+    - Make sure you have Python 3 installed. Then run:
+        ```sh
+        pip3 install -r requirements.txt
+        ```
+    - This will install all the necessary libraries (like pychrome, haralyzer, etc.) listed in `requirements.txt`.
 
 4. **Restart Simba**
-   - Close and reopen the Simba app.
+    - Close and reopen the Simba app.
 
 If you see any errors, copy the error message and contact support for help.
+
+## Mac Installer: Preventing 'Damaged' Errors
+
+For Mac users, the release includes both the `.dmg` installer and a zipped folder containing the installer. **It is recommended to use the zipped version:**
+
+1. Download the zipped folder containing the Simba installer from the release or shared location.
+2. Unzip the folder to extract the `.dmg` file.
+3. Open the `.dmg` and install Simba as usual.
+
+This method helps prevent macOS from flagging the installer as “damaged” due to security checks during download or transfer.
+
+**If you still see a “Simba is damaged and cannot be opened” error:**
+
+1. Open Terminal.
+2. Run the following command (replace the path if your app is not in /Applications):
+    ```sh
+    xattr -dr com.apple.quarantine /Applications/Simba.app
+    ```
+3. Try opening Simba again.
+
+This command removes the quarantine attribute that macOS adds to files downloaded from the internet, allowing the app to run normally.
 
 ## Security
 
@@ -297,5 +317,6 @@ Maintainer: Aditya Shenoy
 ## Quick Navigation Tip
 
 You can press the Home button at the top right of the screen:
+
 - On the landing page (showing connected phones), this will refresh the device list.
 - On the main streaming page, this will take you back to the landing page.

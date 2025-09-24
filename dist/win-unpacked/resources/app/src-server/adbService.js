@@ -43,7 +43,7 @@ async function checkAdbAvailability() {
             adbPath = path.join(process.cwd(), "resources", "adb", "win", "adb.exe");
         } else if (process.platform === "darwin") {
             adbPath = path.join(process.cwd(), "resources", "adb", "mac", "adb");
-        }else {
+        } else {
             adbPath = "adb";
         }
     }

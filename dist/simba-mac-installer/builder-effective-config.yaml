@@ -1,0 +1,33 @@
+directories:
+    output: dist
+    buildResources: resources
+appId: com.yourcompany.simba
+productName: Simba
+asar: false
+files:
+    - filter:
+          - main-electron.js
+          - src-client/**/*
+          - src-server/**/*
+          - public/**/*
+          - har_collection.py
+          - package.json
+extraResources:
+    - from: resources
+      to: app/resources
+      filter:
+          - "**/*"
+    - from: resources/python/mac/simba-python
+      to: resources/python/mac/simba-python
+win:
+    target: nsis
+    requestedExecutionLevel: requireAdministrator
+nsis:
+    include: build/installer.nsh
+    oneClick: false
+    perMachine: true
+    allowElevation: true
+    createDesktopShortcut: true
+mac:
+    target: dmg
+electronVersion: 38.0.0
