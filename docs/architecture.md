@@ -1,7 +1,6 @@
 # Simba Architecture
 
-## Overview
-
+## Overvie
 Simba is composed of three main layers:
 
 - **Frontend:** HTML/CSS/JS, built with Parcel
@@ -23,5 +22,7 @@ Simba is composed of three main layers:
 
 ## Extensibility
 
+
+## Extensibility
 - Modular backend services
 - Pluggable frontend UI components

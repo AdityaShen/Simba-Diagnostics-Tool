@@ -2,8 +2,7 @@
 
 ## Endpoints
 
-### /api/devices
-
+### /api/devi
 - **GET**: List connected Android devices
 
 ### /api/diagnostics
@@ -25,4 +24,6 @@ Currently, all endpoints are local and do not require authentication. For produc
 
 ## Error Handling
 
+
+## Error Handling
 All endpoints return standard HTTP status codes and error messages.
