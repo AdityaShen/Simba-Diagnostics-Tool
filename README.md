@@ -1,7 +1,15 @@
-# Simba
+# Simba PED Controller
 
-Simba is a cross-platform Electron application for streaming Android device screen and audio to your browser, with built-in diagnostics, HAR trace collection, and robust backend services.
+Simba is a powerful, cross-platform Electron application designed for advanced Android device management, diagnostics, and streaming. With Simba, you can:
 
+- Stream your Android device's screen and audio in real time to your browser or desktop, using high-performance scrcpy integration.
+- Collect HTTP Archive (HAR) traces to analyze and troubleshoot network activity directly from your device.
+- Run comprehensive device diagnostics, including WiFi, battery, storage, and process monitoring, all from a unified interface.
+- Record device screens, interact with ADB shell, and access multiple video decoding options for maximum compatibility.
+- Use Simba as a standalone desktop app (Windows, Mac, Linux) or in your browser for flexible workflows.
+- Benefit from a secure, configurable backend (Node.js, Express, WebSocket) that supports multi-device labs and remote access.
+
+Simba is ideal for developers, QA engineers, and support teams who need reliable Android streaming, deep diagnostics, and easy automation in a single, user-friendly tool.
 ## Features
 
 - Stream Android device screen/audio to browser (via scrcpy)
@@ -173,6 +181,16 @@ npm run pack-mac
 - HAR trace and diagnostics require Python 3 and ADB to be installed and available in PATH.
 - If you encounter permission errors, always re-run the installer or app as administrator.
 
+
+## Quick Navigation Tip
+
+You can press the Home button at the top right of the screen:
+
+- On the landing page (showing connected phones), this will refresh the device list.
+- On the main streaming page, this will take you back to the landing page.
+
+
+
 ## Bundled Binaries and External Libraries
 
 All core binaries and dependencies required by Simba are included in the distributable package. This reduces the need to manually download or install external libraries for normal operation.
@@ -230,6 +248,56 @@ ADB_PATH=C:/path/to/adb.exe
 - `npm run lint` - Run ESLint on source files
 - `npm run format` - Format code with Prettier
 - `npm test` - Run all tests
+
+
+## Screenshots
+
+
+### Landing Page
+![Simba Main Dashboard](public/screenshots/landing_page.png)
+
+
+### Device Streaming Page
+![Simba Main Dashboard](public/screenshots/device_streaming_page.png)
+
+
+### Live Device Streaming
+![Simba Main Dashboard](public/screenshots/device_streaming_live.png)
+
+
+### Full Screen Mode
+![Simba Main Dashboard](public/screenshots/fullscreen_mode.png)
+
+
+### Control Bar with Quick Settings
+![Simba Main Dashboard](public/screenshots/quick_settings.png)
+
+
+### Sidebar Controls
+![Simba Main Dashboard](public/screenshots/sidebar_controls.png)
+
+
+### ADB Shell
+![Simba Main Dashboard](public/screenshots/adb_shell.png)
+
+
+### HAR File Tracing
+![Simba Main Dashboard](public/screenshots/har_tracing.png)
+
+
+### Diagnostics Collection
+![Simba Main Dashboard](public/screenshots/diagnostics.png)
+
+
+### Screen recording
+![Simba Main Dashboard](public/screenshots/screen_recording.png)
+
+
+### Display Modes / Advanced Settings
+![Simba Main Dashboard](public/screenshots/display_modes_and_advanced_settings.png)
+
+
+
 
 ## Troubleshooting
 
@@ -313,10 +381,4 @@ MIT License. See LICENSE file for details. Third-party licenses included in `pub
 ## Contact
 
 Maintainer: Aditya Shenoy
-
-## Quick Navigation Tip
-
-You can press the Home button at the top right of the screen:
-
-- On the landing page (showing connected phones), this will refresh the device list.
-- On the main streaming page, this will take you back to the landing page.
+Email: aditya.shenoy@viasat.com
