@@ -7,3 +7,4 @@ SimbaApp-win32-x64.zip filter=lfs diff=lfs merge=lfs -text
 *.pkg filter=lfs diff=lfs merge=lfs -text
 resources/node/mac/node filter=lfs diff=lfs merge=lfs -text
 resources/node/mac/node filter=lfs diff=lfs merge=lfs -text
+dist/simba-mac-installer/* filter=lfs diff=lfs merge=lfs -text
